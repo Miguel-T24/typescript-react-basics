@@ -1,13 +1,16 @@
 let txButton:string = "Haz Click"
 
+// Puedo crear un type que puedo asignarselo a otro tipo de dato
+
+type Color = "Red" | "Green" | "Blue"
+
 //  puedo definir un tipo de dato
  type ButtonProps = {
   text : string,
   subtitle? :  string,
-  color? : string,
-
+  color? : Color,
   // Puedo especificar que opciones son posibles
-  backgroundColor? : "Red" | "Green" | "Blue"
+  backgroundColor? : Color | "Yellow"
  }
 //  Los signos de interrogacion indican que la variable es opcional
 
@@ -37,7 +40,7 @@ function Button(props: ButtonProps){
 
 function Page(){
   return(
-  <Button text = "Hello World" subtitle = "Este es el subtitulo" color = "Red" backgroundColor="Blue"/>
+  <Button text = "Hello World" subtitle = "Este es el subtitulo" color = "Red" backgroundColor="Yellow"/>
   ) 
 }
 
