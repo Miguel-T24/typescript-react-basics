@@ -1,23 +1,29 @@
 
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  padding : [number,number,number?,number?],
- }
+  style : React.CSSProperties;
+ };
 //  Los signos de interrogacion indican que la variable es opcional
 
 
-function Button({ } : ButtonProps){
+function Button({style} : ButtonProps){
   return(
     <>
-      <button>padding</button>
+      <button style={style}>Prueba</button>
     </>
   )
 } 
 
 function Page(){
   return(
-  <Button padding = {[22,23,24,15]}/>
-  ) 
+    <>
+    <Button style={{
+      backgroundColor: "darkred", 
+      color:"white",
+      fontSize: "160px"
+    }}/>
+    </>
+  )
 }
 
 export default Page;
