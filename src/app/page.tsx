@@ -4,7 +4,10 @@ let txButton:string = "Haz Click"
  type ButtonProps = {
   text : string,
   subtitle? :  string,
-  color? : string
+  color? : string,
+
+  // Puedo especificar que opciones son posibles
+  backgroundColor? : "Red" | "Green" | "Blue"
  }
 //  Los signos de interrogacion indican que la variable es opcional
 
@@ -18,7 +21,7 @@ function Button(props: ButtonProps){
   console.log("El numero es: ",suma(1,2));
 
   // Podria extraer cada variable y asignarla
-  const {text, subtitle, color} = props
+  const {text, subtitle, color, backgroundColor} = props
 
 
   return(
@@ -26,14 +29,15 @@ function Button(props: ButtonProps){
       <button>{txButton}</button>
       <button>{text}</button>
       <button>{subtitle}</button>
-      <button>{color}</button>
+      <button>{color}</button> 
+      <button>{backgroundColor}</button> 
     </>
   )
 } 
 
 function Page(){
   return(
-  <Button text = "Hello World" subtitle = "Este es el subtitulo" color = "Red" />
+  <Button text = "Hello World" subtitle = "Este es el subtitulo" color = "Red" backgroundColor="Blue"/>
   ) 
 }
 
