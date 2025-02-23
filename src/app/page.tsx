@@ -1,15 +1,16 @@
+'use client'
 
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  userAges : Record <"Alice" | "Bob" | "Juan", number>
+  onClick : (text: string) => void,
  };
 //  Los signos de interrogacion indican que la variable es opcional
 
 
-function Button({} : ButtonProps){
+function Button({onClick} : ButtonProps){
   return(
     <>
-      <button >Prueba</button>
+      <button onClick = {() => onClick("Hello World")}>Test</button>
     </>
   )
 } 
@@ -17,11 +18,7 @@ function Button({} : ButtonProps){
 function Page(){
   return(
     <>
-    <Button userAges = {{
-      Alice : 20,
-      Bob : 22,
-      Juan : 30
-    }}/>
+    <Button onClick={() => {alert('Funciona')}}/>
     </>
   )
 }
