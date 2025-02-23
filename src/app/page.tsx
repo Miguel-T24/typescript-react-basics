@@ -1,15 +1,15 @@
 
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  style : React.CSSProperties;
+  userAges : Record <"Alice" | "Bob" | "Juan", number>
  };
 //  Los signos de interrogacion indican que la variable es opcional
 
 
-function Button({style} : ButtonProps){
+function Button({} : ButtonProps){
   return(
     <>
-      <button style={style}>Prueba</button>
+      <button >Prueba</button>
     </>
   )
 } 
@@ -17,10 +17,10 @@ function Button({style} : ButtonProps){
 function Page(){
   return(
     <>
-    <Button style={{
-      backgroundColor: "darkred", 
-      color:"white",
-      fontSize: "160px"
+    <Button userAges = {{
+      Alice : 20,
+      Bob : 22,
+      Juan : 30
     }}/>
     </>
   )
