@@ -1,28 +1,24 @@
 'use client'
 
-import { Dispatch, SetStateAction, useState } from "react";
-
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  setCount: Dispatch<SetStateAction<number>>;
+  title? : string;
  };
 
-function Button({setCount} : ButtonProps){
+function Button({title = "Titulo por Defecto"} : ButtonProps){
   return(
     <>
-      <button onClick={() => setCount(10)}>
-        Test String
+      <button >
+        {title}
       </button>
     </>
   )
 } 
 
 function Page(){
-  const[count, setCount] = useState<number>(0);
   return(
     <>
-      <h1>{count}</h1>
-      <Button setCount={setCount}/>
+      <Button />
     </>
   )
 }
