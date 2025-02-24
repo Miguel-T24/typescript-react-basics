@@ -1,18 +1,16 @@
 'use client'
 
-import {JSX} from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  // Puedo decir que los children de este boton son de un tipo especifico o de diferentes tipos
-  // Children:  React.ReactNode;
-  children : JSX.Element | JSX.Element[] | string,
+  setCount: Dispatch<SetStateAction<number>>;
  };
 
-function Button({} : ButtonProps){
+function Button({setCount} : ButtonProps){
   return(
     <>
-      <button>
+      <button onClick={() => setCount(10)}>
         Test String
       </button>
     </>
@@ -20,11 +18,11 @@ function Button({} : ButtonProps){
 } 
 
 function Page(){
+  const[count, setCount] = useState<number>(0);
   return(
     <>
-      <Button>
-        Probando un children con tipo de dato string
-      </Button>
+      <h1>{count}</h1>
+      <Button setCount={setCount}/>
     </>
   )
 }
