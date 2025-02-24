@@ -1,16 +1,20 @@
 'use client'
 
+import {JSX} from "react";
+
 //  puedo definir un tipo de dato
  type ButtonProps = {
-  onClick : (text: string) => void,
+  // Puedo decir que los children de este boton son de un tipo especifico o de diferentes tipos
+  // Children:  React.ReactNode;
+  children : JSX.Element | JSX.Element[] | string,
  };
-//  Los signos de interrogacion indican que la variable es opcional
 
-
-function Button({onClick} : ButtonProps){
+function Button({} : ButtonProps){
   return(
     <>
-      <button onClick = {() => onClick("Hello World")}>Test</button>
+      <button>
+        Test String
+      </button>
     </>
   )
 } 
@@ -18,7 +22,9 @@ function Button({onClick} : ButtonProps){
 function Page(){
   return(
     <>
-    <Button onClick={() => {alert('Funciona')}}/>
+      <Button>
+        Probando un children con tipo de dato string
+      </Button>
     </>
   )
 }
