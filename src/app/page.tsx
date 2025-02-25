@@ -4,10 +4,17 @@ import { ComponentProps } from "react";
 
 type buttonProps = ComponentProps<"button">;
 
-function Button({}: buttonProps){
+function Button({onClick, ...rest}:buttonProps){
+
+  const handleClick = () => {
+    if(onClick){
+      alert("Clicked")
+    }
+  }
+
   return(
     <>
-      <button>{}</button>
+      <button onClick = {handleClick} {...rest}>Button</button>
     </>
   )
 } 
@@ -15,7 +22,16 @@ function Button({}: buttonProps){
 function Page(){
   return(
     <>
-      <Button style={{}}/>
+      <Button 
+      onClick={() => alert("Hello World")}
+      style={{
+        color : "red",
+        backgroundColor : "Black"
+      }}
+
+      >
+        click me
+      </Button>
     </>
   )
 }
