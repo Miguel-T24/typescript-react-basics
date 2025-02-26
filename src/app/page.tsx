@@ -2,19 +2,17 @@
 
 import { ComponentProps } from "react";
 
-type buttonProps = ComponentProps<"button">;
+type buttonProps = ComponentProps<"button"> & {
+  dark?:boolean,
+  variant?:"Primary" | "Secondary"
+  children : boolean
+};
 
-function Button({onClick, ...rest}:buttonProps){
-
-  const handleClick = () => {
-    if(onClick){
-      alert("Clicked")
-    }
-  }
-
+function Button({dark, variant, children }:buttonProps){
+  variant = "Primary"
   return(
     <>
-      <button onClick = {handleClick} {...rest}>Button</button>
+      <button>Button</button>
     </>
   )
 } 
@@ -22,16 +20,7 @@ function Button({onClick, ...rest}:buttonProps){
 function Page(){
   return(
     <>
-      <Button 
-      onClick={() => alert("Hello World")}
-      style={{
-        color : "red",
-        backgroundColor : "Black"
-      }}
-
-      >
-        click me
-      </Button>
+      <Button>{true}</Button>
     </>
   )
 }
