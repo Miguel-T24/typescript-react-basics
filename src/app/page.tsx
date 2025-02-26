@@ -1,6 +1,7 @@
 'use client'
 
 import { ComponentProps } from "react";
+import { ComponentPropsWithoutRef, MouseEvent } from "react";
 
 type buttonProps = ComponentProps<"button"> & {
   dark?:boolean,
@@ -8,11 +9,12 @@ type buttonProps = ComponentProps<"button"> & {
   children : boolean
 };
 
-function Button({dark, variant, children }:buttonProps){
-  variant = "Primary"
+function Button({}:buttonProps){
+  const handleclick = (e:MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {}
+
   return(
     <>
-      <button>Button</button>
+      <button onClick={handleclick}>Button</button>
     </>
   )
 } 
