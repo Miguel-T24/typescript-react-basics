@@ -1,20 +1,25 @@
 'use client'
 
-import { ComponentProps } from "react";
-import { ComponentPropsWithoutRef, MouseEvent } from "react";
+import { useState , useRef} from "react"
 
-type buttonProps = ComponentProps<"button"> & {
-  dark?:boolean,
-  variant?:"Primary" | "Secondary"
-  children : boolean
-};
+type User = {
+  name: string,
+  age: number
+}
 
-function Button({}:buttonProps){
-  const handleclick = (e:MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {}
+function Button(){
+  const [count, setCount] = useState<number>(0);
+  const [text, setText] = useState<string>("Button");
+  const [activate, setActivate] = useState<boolean>(false);
+
+  const [user, setUser] = useState<User|null>(null);
+  const myButton = useRef<HTMLButtonElement>(null);
+    console.log(user?.name);
+    console.log(user?.age);
 
   return(
     <>
-      <button onClick={handleclick}>Button</button>
+      <button ref = {myButton}>Button</button>
     </>
   )
 } 
@@ -22,7 +27,7 @@ function Button({}:buttonProps){
 function Page(){
   return(
     <>
-      <Button>{true}</Button>
+      <Button></Button>
     </>
   )
 }
